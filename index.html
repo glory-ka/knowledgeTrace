@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lan='en'>
-
+<!DOCTYPE htlm>
+<html>
     <head>
-        <meta charset='UTF-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <title>HTML href Demo</title>
-        
-        <!-- href=/firstDir/SecondDri/style.css would translate to
-            href = https://hostname:port/firstDir/SecondDri/style.css  -->
-        <link rel='stylesheet' href='/firstDir/SecondDri/style.css' />
+        <script type="module">
+            import {io} as io from "./node_modules/socket.io/client-dist/socket.io.esm.js";
+            io.connect('/');
+        </script>
+    <!--
+        <script type="module">
+            import {io} from "https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js";
+            io.connect('/');
+        </script>
+     -->
+
+         <!--
+        <script src='/socket.io/socket.io.js'></script>
+        <script src='script.js'></script>
+     -->
     </head>
-
-    <body>
-        THIS IS A SIMPLE href demo, We expect an error
-    </body>
-
 </html>
