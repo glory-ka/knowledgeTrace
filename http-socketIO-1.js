@@ -10,7 +10,8 @@ console.log(socket_IO().toString());
 
 /**
  * Seems it takes a class or subclass of the net.Server() object
- * This also put the socket.io source files in the root of the serve
+ * This also put the socket.io create a socket.io route
+ * href=/socket.io/socket.io.js
  */
 const socket1 = socket_IO1(http);
 
