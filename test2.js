@@ -1,2 +1,2 @@
-const  = require('socket.io');
-//const socket = io('/');
+const socket = require('socket.io');
+const io = socket.connect('/');
