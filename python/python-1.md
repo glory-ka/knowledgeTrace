@@ -138,7 +138,7 @@ issubclass(object1, object2)
 
 ### **MAGIC METHODs AKA DUNDER**
 **These are methods preceeded by double quotes ```<__method__>```**
-They have a special meaning and are initialized by default
+__They have a special meaning and are initialized by default__
  Much like in C++ we can override them
 ```python
 print(object)                   # print.__str__(self, object)
@@ -254,7 +254,7 @@ a, b, *c, d = (1, 2, 3, 5, 6, 7)    #upack a=1, b=2, c=[5,6], d=7
 *******************END*******************
 
 ### **ADD ATTRIBUTE TO OBJECT**
-```python=
+```python
 class Example:
     pass
 
