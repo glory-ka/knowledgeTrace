@@ -138,7 +138,8 @@ issubclass(object1, object2)
 
 ### **MAGIC METHODs AKA DUNDER**
 
-**These are methods preceeded by double quotes ```<__method__>```**
+**These are methods preceeded by double quotes ```<__method__>```**.
+
 __They have a special meaning and are initialized by default__
 __Much like in C++ we can override them__
 ```python
