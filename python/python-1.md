@@ -137,9 +137,10 @@ issubclass(object1, object2)
 *******************END*******************
 
 ### **MAGIC METHODs AKA DUNDER**
+
 **These are methods preceeded by double quotes ```<__method__>```**
 __They have a special meaning and are initialized by default__
- Much like in C++ we can override them
+__Much like in C++ we can override them__
 ```python
 print(object)                   # print.__str__(self, object)
 ClassName(value1,value2)        # ClassName.__init__(self, value1, value2)
@@ -154,6 +155,7 @@ function()                      # function.__call__(self)
 ```
 
 ### **Dunder method we should always implement**
+
 ```python
 #print a user friendly representation of the object
 __str__    
@@ -200,6 +202,7 @@ del inst1.method1
 *******************END*******************
 
 ### **TERNARY OPERATION**
+
 ```python
 condition = True
 
@@ -208,6 +211,7 @@ var = 1 if condition else 0
 *******************END*******************
 
 ### **NUMBER FORMATING**
+
 ```python
 million = 1000000
 formatMillion = 1_000_000
@@ -226,6 +230,7 @@ print (f'{strSize:<07}'}        # 23.4900 : returns a string
 *******************END*******************
 
 ### **ENUMERATE AND ZIP FUNCITIONS**
+
 ```python
 list1 = [val1, ...., val12]
 list2 = [val1,....., val12]
@@ -244,6 +249,7 @@ for tuple in zip (list1, list2, list3):
 *******************END*******************
   
 ### **UNPACKING**
+
 ```python
 a, b        = (1, 2)                #unpack a tuple to a and b
 a, b, _     = (1, 2, 3)             #unpack 1 and 2 and ignore 3
@@ -254,6 +260,7 @@ a, b, *c, d = (1, 2, 3, 5, 6, 7)    #upack a=1, b=2, c=[5,6], d=7
 *******************END*******************
 
 ### **ADD ATTRIBUTE TO OBJECT**
+
 ```python
 class Example:
     pass
@@ -275,6 +282,7 @@ print(instance1.mother)
 *******************END*******************
 
 ### **USE GETPASS TO ASK FOR USER PASSWORD**
+
 ```python=
 from getpass import getpass
 
@@ -351,6 +359,7 @@ newDisplay()    # The wrapper executed this before newDisplay
 *******************END*******************
  
 ### **DECORATOR FUNCTION WITH ARGUMENT: ARGS AND KWARGS -> KEYWORD ARGUMENTS**
+
 ```python
 def decorator_function2(original_function):
     def wrapper_function(*args, **kwargs):
@@ -416,6 +425,7 @@ while True:
 *******************END*******************
 
 ### **USER THE ITERABLE AND ITERATOR KNOWLEDGE TO CREATE A CLASS THAT BEHAVES LIKE RANGE()**
+
 ```python
 class MyRange:
 
@@ -537,6 +547,7 @@ string.count('value') # returns the number of repetiton of 'value' in string
 
 
 #### **Dictionary**
+
 __.get()__
 
 ```python
@@ -550,44 +561,54 @@ dictionary.get('key', 'Customed message')
 >if key not found: get('key') returns Non or Customed message / ['key']: raise exception 
 
 __.update()__
+
 ```python
 dictionary.update({'key':value, 'key':value, ...}) #updates a dictionary 
 ```
 __.pop()__
+
 ```python
 dictionary.pop('key')   # returns and remove the value associated with 'key'
 ```
 __.keys()__
 ```python
+
 dictionary.keys()   # returns all the keys
 ```
 __.values()__
+
 ```python           
 dictonary.values()  # returns all the values
 ```
 __.items()__
+
 ```python          
 dictionary.items()  # returns list of (key, value) tuples
 ```
 ### **List**
+
 ```python 
 list0 = [1, 2, 4, 5]
 list1 = [6, 7, 8, 9]
 ```
 
 __.insert(location, value)__
+
 ```python
 list0.insert(2, 3)       # Adds a value at an index : [1, 2, 3, 4, 5]
 ```
 __.extend()__
+
 ```python
 list.extend(list1)     # Merges two lists: [1, 2, 4, 5, 6, 7, 8, 9]
 ```
 __.remove()__
+
 ```python
 list.remove(valueToRemove)  # Removes the fisrt appearance of valueToRemove in the list
 ```
 __.pop()__
+
 ```python
 list.pop()             # removes and returns the last elements of the list
 ```
@@ -596,6 +617,7 @@ __.sort()
 .reverse()__
 
 __.index()__
+
 ```python
 list.index('value')     # returns the index of 'value' within the list
 ```
@@ -607,6 +629,7 @@ list.index('value')     # returns the index of 'value' within the list
 ','.join(list)             
 ```
 ### **SET**
+
 ```python
 set1 = {'val1', 'val2', 'val3', 'val4', 'val5'}
 set2 = {'val1', 'val5', 'val3', 'val7', 'val8'}
@@ -633,6 +656,7 @@ b = a
 print (a is b) # id(a) == id(b) : True
 ```
 ### **List of object state that evaluate to False**
+
 ```python
 condition = object 
 ```
@@ -640,6 +664,7 @@ condition = object
 __Any empty sequence evaluate to false: '', [], ()
 Any empty mapping evaluate to false: {}
 None and False evaluate to false__
+
 ```python
 if condition:
     #code goes here
