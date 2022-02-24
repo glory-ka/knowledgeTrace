@@ -137,7 +137,7 @@ issubclass(object1, object2)
 *******************END*******************
 
 ### **MAGIC METHODs AKA DUNDER**
-**These are methods preceeded by double quotes ```<__method__>```
+**These are methods preceeded by double quotes ```<__method__>```**
 They have a special meaning and are initialized by default
  Much like in C++ we can override them
 ```python
@@ -286,7 +286,7 @@ password = getpass("Password: ") # The user keystroke will be visible
 
 ### **FIRST-CLASS FUNCTION IN PYTHON AND OTHER LANGUAGE (JAVASCRIPT, ...)**
 
-```python=
+```python
 #This creates a sort of local enviroment that persistes even after
 #it has finished executing. That is because it returns a function
 #This is called "Closure"
@@ -307,7 +307,7 @@ print (funVar("innerFunction"))
 
 ### **DECORATOR FUNCTION**
 
-```python=
+```python
 # Here we wrap the original_function and add an extra functionality
 def decorator_function1(original_function):
     def wrapper_function():
@@ -380,7 +380,10 @@ A method is an iterator if it has the dunder `__next()__`
 A iterator is an object with a state. It knows its state and knows where to get the next value
 How to check if a object has certain method?
 
-print(dir(object)) # returns a list of method and attribute within the object
+```python
+# returns a list of method and attribute within the object
+print(dir(object)) 
+```
 
 __next(object) --> `object.__next()__`__
 __iter(object) --> `object.__iter()__`__
