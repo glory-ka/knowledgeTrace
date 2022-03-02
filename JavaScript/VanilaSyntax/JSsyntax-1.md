@@ -25,7 +25,7 @@ document.querySelector('html_container_tag').append(tag);
 .innerHTML
 ```
 
-### __JAVASCRIPT EVENTLISTENER__
+#### __JAVASCRIPT EVENTLISTENER__
 
 **If we put () after function name, the call happens right away**
 **Note:** only use () in html tag attribute: **<button onclick="function()">butn</button>**
@@ -49,14 +49,14 @@ document.querySelector('select').onChange = () => {
 setInterval(time_millisecond, function_name) 
 ```
     
-### __BROWSER LOCAL STORAGE__
+#### __BROWSER LOCAL STORAGE__
 
 ```javascript
 localStorage.setItem('variable_name', initial_value)
 localStorage.getItem('variable_name')
 ```
     
-### __JAVASCRIPT AJAX SYNTAX__
+#### __JAVASCRIPT AJAX SYNTAX__
 **AJAX : Asynchronous JavaScript And XML**
     
 **RECEIVING DATA VIA POST REQUEST**
@@ -129,7 +129,7 @@ fetch('/url') --> fetch(Request('/url'))
 *The step is fairly similar to the default GET request, the output of console.log(data) show how POST request is wrapped.* [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/API/Request/json)
 
     
-### __FOREACH, FOR LOOP AND MAP EXAMPLE__
+##### __FOREACH, FOR LOOP AND MAP EXAMPLE__
 ```javascript
 /* [value, value, value] */
 const httpTags = document.querySelectorAll(['tag' | 'class_name']); 
@@ -153,7 +153,7 @@ for (httpTag of httpTags){ /*do something with each httpTag */ }
 const newHttpTags = httpTags.map(httpTag => {}); 				
 ```
     
-### __WINDOWS FUNCTIONS__
+#### __WINDOWS FUNCTIONS__
 
 **EXECUTE A FUNCTION AT A MILLISECOND INTERVAL**
 ```javascript
@@ -178,7 +178,7 @@ window.scrollY
 document.body.offsetHeight
 ```
 
-### __JSON DATA ACCESS METHOD AND CONVERSION__
+#### __JSON DATA ACCESS METHOD AND CONVERSION__
 ```javascript
 let json = {
 		data1:"data1"
@@ -196,7 +196,7 @@ let json2 = JSON.parse(text)
 /* '{"name":"John", "birth":"1986-12-14", "city":"New York"}' */
 let json3 = JSON.stringify(json2) 
 ```
-### __HTML5 HISTORY API__
+#### __HTML5 HISTORY API__
 
 **PUSH URL STATE**
 ```javascript
@@ -214,13 +214,13 @@ window.onpopstate = e =>{
 	document.querySelector('<ref>').innerHTML = data.text;
 }
 ```
-### __Template Literal: String manupilation__
+#### __Template Literal: String manupilation__
 ```javascript
 const var1 = value;
 let string1 = `This is a string ${value} that has a value inserted`;
 ```
 
-### __JAVA SCRIPT BUILTIN LIBRARIES__
+#### __JAVA SCRIPT BUILTIN LIBRARIES__
 
 **GENERATE RANDOM NUMBERS**
 ```javascript
