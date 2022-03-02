@@ -169,7 +169,8 @@ makeSmoothie().then(log); // log function defined up top
 ```
 
 **Part 8 : Await -> Efficient**
-Here we get both promises and resolve them at once.
+
+**Here we get both promises and resolve them at once.**
 ```javascript
 
 const makeSmoothie = {
@@ -236,7 +237,8 @@ function promiseHell {
 
 
 **RUN CONCURRENTLY**
-**NOTE:** might not be the behavior you expect
+
+**NOTE: might not be the behavior you expect**
 ```javascript
 
 const fruits = ['peach', 'pineapple', 'strawberry'];
