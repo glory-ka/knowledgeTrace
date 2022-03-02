@@ -8,8 +8,9 @@ app.use(express.static('docs'));
 ```
 
 **create a websocket to detect new connections to the server**
+
+##### __Load the socket.io library__
 ```javascript
-//Load the socket.io library
 var socket = require('socket.io');
 ```
 ##### __link the library to the Express server__
