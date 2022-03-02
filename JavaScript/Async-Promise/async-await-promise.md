@@ -1,10 +1,7 @@
+[source](https://github.com/fireship-io/tdd-basics-project)
+#### __Asynch (macro vs micro tasks) and Synch code__
+
 ```javascript
-// source: https://github.com/fireship-io/tdd-basics-project
-
-/**
-*	Asynch (macro vs micro tasks) and Synch code 
-*/
-
 console.log(_ => console.log("Synchronous 1"));
 
 setTimeout(_ => console.log("Timeout 2"), 0);
@@ -12,17 +9,16 @@ setTimeout(_ => console.log("Timeout 2"), 0);
 Promise.resolve().then(_ => console.log("Promise 3"));
 
 console.log("Synchronous 4")
+```
 
+#### __Promise__
 
-/**
-*	Promise
-*
-*/
-
+```javascript
 import fetch from 'node-fetch';
+```
 
-/** Part 1 */
-
+**Part 1**
+```javascript
 const promise  = fetch ('url');
 
 promise
@@ -30,9 +26,10 @@ promise
 	.then(user => console.log(user.title));
 
 console.log("Synchronous");
+```
 
-/** Part 2 : Error Handling --> better to put it last**/
-
+**Part 2 : Error Handling --> better to put it last**
+```javascript
 promise
 	.then(res => res.json())
 	.then (user => {
@@ -43,9 +40,10 @@ promise
 	.catch(err => console.error(err));
 
 console.log("Synchronous");
+```
 
-
-/** Part 3 */
+**Part 3**
+```javascript
 
 const tick = Date.now();
 const log = (v) => console.log(`${v} \n Ellapsed: ${Date.now() - tick}`)
@@ -62,10 +60,11 @@ log('Synchronous 1');
 log(codeBlocker());
 
 log('Synchronous 2')
+```
 
 
-
-/** Part 4 : Wrong use of promise**/
+**Part 4 : Wrong use of promise**
+```javascript
 
 const codeBlocker = () => {
 	
@@ -88,10 +87,12 @@ codeBlocker().then(log);
 
 log('Synchronous 2')
 
+```
 
+**Part 5 : Correct usage**
+**Goal : run code with delay, still on the main thread**
 
-/** Part 5 : Correct usage */
-/** Goal : run code with delay, still on the main thread **/ 
+```javascript
 
 const codeBlocker = () => {
 	
@@ -108,16 +109,19 @@ log('Synchronous 1');
 codeBlocker().then(log);
 
 log('Synchronous 2')
+```
 
-
-/** Part 6 : Async 
+**Part 6 : Async**
+```javascript
+/**
  *	Async sets up a context to use Await
  *  Await much like .then() pauses the execution
  *  until promise is resolve (e.g value is assigned to variable).
  *  Note: This is possible because both promises don't have side effect,
  *  aka do not interact with one another.
  */
-
+```
+```javascript
 //const getFruit = (name) => {
 //		const fruits = 
 //		{
@@ -130,10 +134,10 @@ log('Synchronous 2')
 //
 //		return Promise.resolve(fruits[name]);
 //}
+```
 
-/**
- * The commented code above is similar to this one
- */
+**The commented code above is similar to this one**
+```javascript
 const getFruit = async (name) => {
 		const fruits = 
 		{
@@ -148,12 +152,11 @@ const getFruit = async (name) => {
 }
 
 getFuite('peach').then(console.log)
+```
 
-
-/** Part 7 : Await -> Good but not efficient 
- * Here we wait twice.
- */
-
+**Part 7 : Await -> Good but not efficient**
+**Here we wait twice.**
+```javascript
 const makeSmoothie = {
 
 		const a = await getFruit('Pineapple');
@@ -163,10 +166,12 @@ const makeSmoothie = {
 }
 
 makeSmoothie().then(log); // log function defined up top
+```
 
-/** Part 8 : Await -> Efficient 
- *	Here we get both promises and resolve them at once.
- */
+**Part 8 : Await -> Efficient**
+
+**Here we get both promises and resolve them at once.**
+```javascript
 
 const makeSmoothie = {
 
@@ -180,102 +185,104 @@ const makeSmoothie = {
 }
 
 makeSmoothie().then(log); // log function defined up top
+```
 
-/** Part 9 : Error Handling -> {Return: continue, Throw: stop} */
-
+**Part 9 : Error Handling -> {Return: continue, Throw: stop}**
+```javascript
 const badSmootie = {
-		try {
-			
-				const a = getFruit('Pineapple');
-				const b = getFruit('Strawberry');
-				
-				const smootie = Promise.all([a, b]);
-				
-				throw 'broken'; // go to -> catch {Return: continue, Throw: stop}
+	try {
 
-				return smootie; 
-		} 
-		catch (err) {
-				console.log(err);
+			const a = getFruit('Pineapple');
+			const b = getFruit('Strawberry');
 
-				//return 'Go to next then statement if exist';
+			const smootie = Promise.all([a, b]);
 
-				throw 'Stop block';
-		}
+			throw 'broken'; // go to -> catch {Return: continue, Throw: stop}
+
+			return smootie; 
+	} 
+	catch (err) {
+			console.log(err);
+
+			//return 'Go to next then statement if exist';
+
+			throw 'Stop block';
+	}
 }
+```
 
-
-/**
- * Promise Hell
- *
- */
+**Promise Hell**
+```javascript
 
 function promiseHell {
-		let userID;
-		let postID;
-		let db;
+	let userID;
+	let postID;
+	let db;
 
-		db.then(u => {
-				return db.user().then((v) => v.json())
-		})
-		.then (u => {
-				userID = u.id;
+	db.then(u => {
+			return db.user().then((v) => v.json())
+	})
+	.then (u => {
+			userID = u.id;
 
-				return db.post(userID).then((v) => v.json())
-		})
-		.then ( p => {
-				postID = p.id;
+			return db.post(userID).then((v) => v.json())
+	})
+	.then ( p => {
+			postID = p.id;
 
-				return db.comments(postID).then((v) => v.json())
-		});
+			return db.comments(postID).then((v) => v.json())
+	});
 }
+```
 
 
-/**
- *	RUN CONCURRENTLY
- *	NOTE: might not be the behavior you expect
- *
- */
+**RUN CONCURRENTLY**
 
+**NOTE: might not be the behavior you expect**
+```javascript
 
 const fruits = ['peach', 'pineapple', 'strawberry'];
+```
 
-/* ARRAY : MAP FUNCTION */
+**ARRAY : MAP FUNCTION**
 
-// No pausing code, all promises would run concurrently
+**No pausing code, all promises would run concurrently**
+
+```javascript
 const smootie = fruits.map( async v => {
 		const fruit = await getFruit(v);
 		log(fruit); // log function defined up top
 		return fruit;
 }
+```
 
-/* ARRAY : MAP FUNCTION AND FOR LOOP */
+**ARRAY : MAP FUNCTION AND FOR LOOP**
+```javascript
 
 // return promises
 const smoothie = fruits.map(v => getFruit(v));
 
 const fruitLoop = async () => {
 
-		// wait until all promises are resolved, run concurrently.
-		// That is because we only wait once. 
-		for await (const fruit of smootie)
-		{
-				//code goes here
-		}
+	// wait until all promises are resolved, run concurrently.
+	// That is because we only wait once. 
+	for await (const fruit of smootie)
+	{
+			//code goes here
+	}
 }
+```
 
-/**
- *  RUN IN CHAIN
- *	Run one promises after the other, wait until promise resolves
- */
 
-// 
+**RUN IN CHAIN**
+Run one promises after the other, wait until promise resolves
+
+```javascript
 const fruitLoop = async () => {
-		for (const f of fruits)
-		{
-				const fruit = await getFruit(f);
-				log(fruit); // log function defined up top
-		}
+	for (const f of fruits)
+	{
+			const fruit = await getFruit(f);
+			log(fruit); // log function defined up top
+	}
 }
-
 ```

@@ -1,20 +1,24 @@
 ```javascript
 
-/** source: https://nodejs.org/api/http.html#event-upgrade_1
- *  We use the CONNECT method to turn a http server into a proxy
- */
+[source](https://nodejs.org/api/http.html#event-upgrade_1)
+**We use the CONNECT method to turn a http server into a proxy**
 
+```javascript
 const http = require('http');
 const net = require('net');
 const { URL } = require('url');
+```
 
-/** Create an HTTP tunneling proxy */
+**Create an HTTP tunneling proxy**
+```javascript
 const proxy = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('okay');
 });
+```
 
-/** This is called after the client, below proxy.listen(...), sends a CONNECT request */
+**This is called after the client, below proxy.listen(...), sends a CONNECT request**
+```javacript
 proxy.on('connect', (req, clientSocket, head)/** (req, socket, head )*/ => { 
 
 	/** Connect to an origin server
@@ -33,12 +37,12 @@ proxy.on('connect', (req, clientSocket, head)/** (req, socket, head )*/ => {
 
   });
 });
+```
+### **Now that proxy is running**
+Here, the callback plays the role of the client side.
+If the class was on a different context/origin we would have to find a to bypass the CORS mechanism.
 
-/** Now that proxy is running 
- * Here, the callback plays the role of the client side.
- * If the class was on a different context/origin we would have
- * to find a to bypass the CORS mechanism.
- */
+```javascript
 proxy.listen(1337, '127.0.0.1', () => {
 
   /** Make a request to a tunneling proxy */
@@ -51,10 +55,10 @@ proxy.listen(1337, '127.0.0.1', () => {
 
   const req = http.request(options);
   req.end();
-
-  /** This happens after the server responds to the request above.
-	* We started the http connection in CONNECT Mode, subprotocol. 
-	*/
+```
+**This happens after the server responds to the request above.**
+**We started the http connection in CONNECT Mode, subprotocol.** 
+```javascript
   req.on('connect', (res, socket, head) => {
 
     console.log('got connected!');

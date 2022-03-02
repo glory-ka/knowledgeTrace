@@ -2,20 +2,26 @@
 var express = require('express');
 var app = express();
 var server = app.listen(3000);
-
+```
+```javascript=
 app.use(express.static('docs'));
+```
 
-//create a websocket to detect new connections to the server
+**create a websocket to detect new connections to the server**
 
-//Load the socket.io library
+##### __Load the socket.io library__
+```javascript
 var socket = require('socket.io');
-
-//link the library to the Express server
+```
+##### __link the library to the Express server__
+```javascript
 var io = socket(server);
-
-// Listen for "connection" and call the newConnection function
+```
+##### __Listen for "connection" and call the newConnection function__
+```javascript
 io.sockets.on('connection', newConnection);
-
+```
+```javascript
 function newConnection(socket)
 {
     //Print socket id
@@ -29,5 +35,4 @@ function newConnection(socket)
         socket.broadcast.emit('text', data);
     }
 }
-
 ```
