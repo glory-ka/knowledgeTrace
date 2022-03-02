@@ -4,7 +4,7 @@
 >CAN ONLY FORM SEND POST REQUEST ? -> don't think so, but not sure
 	[FLASK POST SYNTAX: request.form.get(['id'| 'name'| 'class'])]
 
-
+---
 #### __JAVASCRIPT SELECTORS AND FUNCTIONS__
 ```javascript
 document.getElementById('elememt_id');
@@ -24,7 +24,7 @@ document.querySelector('html_container_tag').append(tag);
 .append(html_tag)
 .innerHTML
 ```
-
+---
 #### __JAVASCRIPT EVENTLISTENER__
 
 **If we put () after function name, the call happens right away**
@@ -43,32 +43,32 @@ document.querySelector('select').onChange = () => {
 	document.querySelector('<ref>').style.color = this.dataset.color; 
 }
 ```
-    
+...   
 **Not really an event listern**
 ```javascript
 setInterval(time_millisecond, function_name) 
 ```
-    
+---    
 #### __BROWSER LOCAL STORAGE__
 
 ```javascript
 localStorage.setItem('variable_name', initial_value)
 localStorage.getItem('variable_name')
 ```
-    
+---    
 #### __JAVASCRIPT AJAX SYNTAX__
-**AJAX : Asynchronous JavaScript And XML**
+##### **AJAX : Asynchronous JavaScript And XML**
     
-**RECEIVING DATA VIA POST REQUEST**
+##### **RECEIVING DATA VIA POST REQUEST**
 
-##### **STEP 1: CREATE A REQUEST OBJECT AND INITIALIZE CONNECTION TYPE**
+###### **STEP 1: CREATE A REQUEST OBJECT AND INITIALIZE CONNECTION TYPE**
 
 ```javascript
 const request = new XMLHttpRequest();
 request.open('POST', '/url')
 ```
     
-##### **STEP 2: LISTEN TO ONLOAD EVENT -> ONLY HAPPENS AFTER DATA IS SENT**
+###### **STEP 2: LISTEN TO ONLOAD EVENT -> ONLY HAPPENS AFTER DATA IS SENT**
     
 ```javascript
 request.onload = () =>{
@@ -77,7 +77,7 @@ request.onload = () =>{
 };
 ```
     
-##### **STEP 3: CREATE A FORM OBJECT AND SEND THE POST REQUEST**
+###### **STEP 3: CREATE A FORM OBJECT AND SEND THE POST REQUEST**
 
 ```javascript
 const data = new FormData();
@@ -128,8 +128,8 @@ fetch('/url') --> fetch(Request('/url'))
 
 *The step is fairly similar to the default GET request, the output of console.log(data) show how POST request is wrapped.* [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/API/Request/json)
 
-    
-##### __FOREACH, FOR LOOP AND MAP EXAMPLE__
+---    
+#### __FOREACH, FOR LOOP AND MAP EXAMPLE__
 ```javascript
 /* [value, value, value] */
 const httpTags = document.querySelectorAll(['tag' | 'class_name']); 
@@ -152,32 +152,32 @@ for (httpTag of httpTags){ /*do something with each httpTag */ }
 /* returns new object [newValue, newValue, newValue] */
 const newHttpTags = httpTags.map(httpTag => {}); 				
 ```
-    
+---    
 #### __WINDOWS FUNCTIONS__
 
-**EXECUTE A FUNCTION AT A MILLISECOND INTERVAL**
+##### **EXECUTE A FUNCTION AT A MILLISECOND INTERVAL**
 ```javascript
 window.setInterval(function_name, number)
 ```
 
-**POP URL STATE EVENT**
+##### **POP URL STATE EVENT**
 ```javascript
 window.onpopstate = e =>{} // e is the event associated with onpopstate
 ```
 
-**WINDOW SCROLL EVENT**
+##### **WINDOW SCROLL EVENT**
 ```javascript
 window.onscroll = () =>{};
 ```
 
-**WINDOW DIMENSIONS AND DOCUMENTS (FOR GOOD MEASURE)**
+##### **WINDOW DIMENSIONS AND DOCUMENTS (FOR GOOD MEASURE)**
 ```javascript
 window.innerWidth
 window.innerHeight
 window.scrollY
 document.body.offsetHeight
 ```
-
+---
 #### __JSON DATA ACCESS METHOD AND CONVERSION__
 ```javascript
 let json = {
@@ -196,15 +196,16 @@ let json2 = JSON.parse(text)
 /* '{"name":"John", "birth":"1986-12-14", "city":"New York"}' */
 let json3 = JSON.stringify(json2) 
 ```
+---
 #### __HTML5 HISTORY API__
 
-**PUSH URL STATE**
+##### **PUSH URL STATE**
 ```javascript
 document.title = 'title';
 history.pushState('associated_data', 'title', 'url');
 ```
 
-**PUSH AND POP URL STATE**
+##### **PUSH AND POP URL STATE**
 ```javascript
 history.pushState({title: "tile", text: "raw_data"}, 'title', 'url')
 
@@ -214,15 +215,17 @@ window.onpopstate = e =>{
 	document.querySelector('<ref>').innerHTML = data.text;
 }
 ```
+---
+
 #### __Template Literal: String manupilation__
 ```javascript
 const var1 = value;
 let string1 = `This is a string ${value} that has a value inserted`;
 ```
-
+---
 #### __JAVA SCRIPT BUILTIN LIBRARIES__
 
-**GENERATE RANDOM NUMBERS**
+##### **GENERATE RANDOM NUMBERS**
 ```javascript
 let random = Math.floor(Math.random() * n)
 ```
