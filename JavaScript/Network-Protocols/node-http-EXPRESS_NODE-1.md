@@ -12,12 +12,12 @@ app.use(express.static('docs'));
 //Load the socket.io library
 var socket = require('socket.io');
 ```
+##### __link the library to the Express server__
 ```javascript
-//link the library to the Express server
 var io = socket(server);
 ```
+##### __Listen for "connection" and call the newConnection function__
 ```javascript
-// Listen for "connection" and call the newConnection function
 io.sockets.on('connection', newConnection);
 ```
 ```javascript
