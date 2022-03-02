@@ -1,10 +1,11 @@
-```javascript
-// #run on : https://codesandbox.io
+#### __run on : https://codesandbox.io__
 
+```javascript
 import React from 'react';
 import ReactDOM from "react-dom";
 //import { render } from 'react-dom';
-
+```
+```javascript
 let id = 0
 const Todo = props => (
     <li>
@@ -13,7 +14,8 @@ const Todo = props => (
       <span>{props.todo.text}</span>
     </li>
 )
-
+```
+```javascript
 class App extends React.Component 
 {
   constructor()
@@ -74,7 +76,8 @@ class App extends React.Component
     )
   }
 }
-
+```
+```javascript
 const rootElement = document.getElementById("root");
 ReactDOM.render(
     <App />,
