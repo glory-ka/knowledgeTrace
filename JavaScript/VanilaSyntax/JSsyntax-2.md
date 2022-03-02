@@ -7,14 +7,12 @@
  * FUNCITONS OR COMPONENTS ARE RENDERED BY REACT-DOM AND TRANSLATED BY /
  * BABEL TO JAVASCRIPT AND HTML AND PLACED INTO THE DOM
  */
+```
 
+#### __JAVA SCRIPT SYNTAX__
 
-// JAVA SCRIPT SYNTAX
-
-/** 
- * CREATE Object 
-*/
-
+**CREATE Object**
+```javascript
 const o = Object();
 
 o.firstname = "name"
@@ -25,8 +23,8 @@ o.isStudent = true
 o.greet = function(){
 	console.log('Hi!')
 }
-// ------------------------
-
+```
+```javascript
 const o1 = {}
 
 o1.firstname = "name"
@@ -39,8 +37,8 @@ o1[key] = true
 o['greet'] = function() {
 	console.log("Hi!")
 }
-// ------------------------
-
+```
+```javascript
 const o2 = {
 	
 	firstname: 'firstname',
@@ -55,10 +53,11 @@ const o2 = {
 	},
 }
 
-// ------------------------
+```
 
-// COPY OBJECT
+**COPY OBJECT**
 
+```javascript
 const objV = {
 	a: 'val',
 	b: 'other'
@@ -66,17 +65,18 @@ const objV = {
 		key: 'key'
 	}
 }
+```
 
-// *** shallow copy using assign() method
+#### **Shallow copy using assign() method**
+##### **Works fine with primitive type, not good for object.**
+##### **objV contains an obj, hence will be copy by reference**
 
-/**
- * good for primitive type, not good for object.
- * objV contains an obj, hence will be copy by reference
- */
+```javascript
 const objN = Object.assign({}, objV)  
+```
 
-
-// *** Deep Copy
+**Deep Copy**
+```javascript
 function deepCopy (obj) 
 {
 	// checks if vals are objects
@@ -100,52 +100,73 @@ function deepCopy (obj)
 	}
 	return newObject
 }
+```
 
-// ARRAY
-
+### **ARRAY**
+```javascript
 const arr = []
 
-arr.push('value')  	// adds value to an array
-arr.__proto__		// shows functions and attribute of Array.prototype
-arr.__proto__.__proto__	// go further down the inheritance tree and show info about Object.prototype
+/* adds value to an array */
+arr.push('value')
 
-// PROTOTYPE INHERITANCE
+/* shows functions and attribute of Array.prototype */
+arr.__proto__
 
-/** Javascript by default wrappes primitive type, but they are not descendent of Number prototype **/
+/* go further down the inheritance tree and show info about Object.prototype */
+arr.__proto__.__proto__	
+```
 
-42.__proto__	// returns false
+### **PROTOTYPE INHERITANCE**
+
+**Javascript by default wrappes primitive type, but they are not descendent of Number prototype**
+
+```javascript
+/* returns false */
+42.__proto__	
 
 const num = 4
-num.__proto__ 	// return info about its wrapper class
-num.toString() 	// '4'
-num instanceof Number // false
 
-/** 
- * Although not recommanded we can change a prototype.
- * It would affect all descendent, because prototype are shared by all descendents.
- */
-Number.__proto__.toString = function () { return "100"} // This changes for all descendent objects
-num.toString() // '100' 
+/* return info about its wrapper class */
+num.__proto__ 
 
-// SCOPE
+/* '4' */
+num.toString()
 
-// Scope type: Lexical scoping (var) and block scoping (let, const)
-// READ ABOUT IT ON YOUR OWN time
+/* false */
+num instanceof Number 
+```
 
-// ############ NICE FUNCTION THAT BEHAVE LIKE A THREAD.SLEEP() FUNCTION ##################
+**Although not recommanded we can change a prototype.**
+**It would affect all descendent, because prototype are shared by all descendents.**
+
+```javascript
+/* This changes for all descendent objects */
+Number.__proto__.toString = function () { return "100"} 
+
+/* '100' */
+num.toString()  
+```
+
+### **SCOPE**
+
+#### **Scope type: Lexical scoping (var) and block scoping (let, const).** 
+##### **READ ABOUT IT ON YOUR OWN time**
+
+**NICE FUNCTION THAT BEHAVE LIKE A THREAD.SLEEP() FUNCTION**
+```javascript
 function hang(seconds = 5) {
   const doneAt = Date.now() + seconds * 1000
   while(Date.now() < doneAt) {}
 }
+```
 
-
-// Windows is global object in browser. It is called globall in Node
-
+**Windows is global object in browser. It is called globall in Node**
+```javascript
 <li>
 	<input type='checkbox' />
 	<button> delete </button>	
 	<span> text </span>
 </li>
-
-
 ```
+
+
