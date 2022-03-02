@@ -1,10 +1,9 @@
 
+**IMPORTANT QUESTIONS**
 
-/*
-	**** IMPORTANT QUESTIONS ****
-	CAN ONLY FORM SEND POST REQUEST ? -> don't think so, but not sure
+>CAN ONLY FORM SEND POST REQUEST ? -> don't think so, but not sure
 	[FLASK POST SYNTAX: request.form.get(['id'| 'name'| 'class'])]
-*/
+
 
 #### __JAVASCRIPT SELECTORS AND FUNCTIONS__
 ```javascript
@@ -115,16 +114,20 @@ fetch('/url')
 .then('data => {	console.log(data);' or 'other things'}
 );
 ```
+*Returns Request object*
+[Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/API/Request)
 ```javascript    
-/**
- * fetch('/url') returns Request object			: https://developer.mozilla.org/en-US/docs/Web/API/Request
- * fetch('/url') --> fetch(Request('/url')) 	: https://developer.mozilla.org/en-US/docs/Web/API/Request/Request
- * in addtion to the request object as parameter, fetch can also take an initializer json Object
- * fetch can also send a POST request			: https://stackoverflow.com/questions/29775797/fetch-post-json-data
- * the step is fairly similar to the default GET request, the output of console.log(data) show how POST request is wrapped.   	
- * : https://developer.mozilla.org/en-US/docs/Web/API/Request/json
- */
+fetch('/url')
 ```
+[Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request)
+```javascript
+fetch('/url') --> fetch(Request('/url'))
+```
+**In addtion to the request object as parameter, fetch can also take an initializer json Object**
+**fetch can also send a POST request.** [Mozilla Developer](https://stackoverflow.com/questions/29775797/fetch-post-json-data)
+
+*The step is fairly similar to the default GET request, the output of console.log(data) show how POST request is wrapped.* [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/API/Request/json)
+
     
 ### __FOREACH, FOR LOOP AND MAP EXAMPLE__
 ```javascript
@@ -150,7 +153,7 @@ for (httpTag of httpTags){ /*do something with each httpTag */ }
 const newHttpTags = httpTags.map(httpTag => {}); 				
 ```
     
-### __ WINDOWS FUNCTIONS__
+### __WINDOWS FUNCTIONS__
 
 **EXECUTE A FUNCTION AT A MILLISECOND INTERVAL**
 ```javascript
