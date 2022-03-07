@@ -223,6 +223,36 @@ const var1 = value;
 let string1 = `This is a string ${value} that has a value inserted`;
 ```
 ---
+
+#### __Console object methods__
+```javascript
+/**
+Some console functions are:
+
+.log()
+.assert()
+.count()
+.table()
+.trace()
+.time()
+
+You can also use string substitution for output, just like in c
+Here are the sustitution strings:
+
+%o or %O : object
+%i or %d : integer
+%s       : string
+%f       : float-point
+%c       : apply css style to  output
+**/
+
+console.log("This is an %s", 'example');
+console.log("Add %d + %d", 2, 5);
+console.log("Apply %cCSS style to this part", "color: blue; background-color: blue; padding: 2px");
+
+console.table(['car', 'truck', 'Plane']);
+```
+---
 #### __JAVA SCRIPT BUILTIN LIBRARIES__
 
 ##### **GENERATE RANDOM NUMBERS**
