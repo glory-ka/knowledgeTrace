@@ -1,16 +1,26 @@
+```javascript
 const http = require('http');
 const host = '::0';
 const port = '5000';
+```
+...
 
+```javascript
 const requestListener = (req, res) => {
     res.writeHead(200);
     res.end('Successful Connection');
 
     console.log(`URL paths: ${req.url}`);
 };
+```
+...
 
+```javascript
 const server = http.createServer(requestListener);
+```
+...
 
+```javascript
 server.listen(port, host, ()=>{
 
     const options = {
@@ -35,3 +45,4 @@ server.listen(port, host, ()=>{
 
     req.end();
 });
+```
