@@ -24,7 +24,7 @@
      -->
 ```
 ```html
-         <!--
+    <!--
         <script src='/socket.io/socket.io.js'></script>
         <script src='script.js'></script>
      -->
