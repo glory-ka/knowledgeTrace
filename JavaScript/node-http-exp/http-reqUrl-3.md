@@ -1,15 +1,16 @@
-/**
- * source: https://nodejs.org/api/http.html#event-upgrade_1
-*/
+[source](https://nodejs.org/api/http.html#event-upgrade_1)
 
-
+```javascript
 const http = require('http');
 const net = require('net');
 const { URL } = require('url');
 
 const port_host = '3300';
 const host_name = '::0';
+```
+...
 
+```javascript
 /**
  * Create an HTTP tunneling proxy
  * In the current set up, this code is never reach,
@@ -24,7 +25,10 @@ const proxy = http.createServer((req, res) => {
 
   res.end('okay');
 });
+```
+...
 
+```javascript
 proxy.on('connect', (req, clientSocket, head) => {
 
   // Connect to an origin server
@@ -40,10 +44,14 @@ proxy.on('connect', (req, clientSocket, head) => {
     clientSocket.pipe(serverSocket);
   });
 });
+```
+...
 
+```javascript
 // Now that proxy is running
 proxy.listen(port_host, host_name, () => {
-
+```
+```javascript
   // Make a request to a tunneling proxy
   const options = {
     port: port_host,
@@ -51,20 +59,26 @@ proxy.listen(port_host, host_name, () => {
     method: 'CONNECT',
     path: 'www.google.com:80'
   };
-
+```
+```javascript
   const req = http.request(options);
   req.end();
-
+```
+```javascript
   req.on('connect', (res, socket, head) => {
+```
+```javascript
     console.log('got connected!');
-
+```
+```javascript
     // console.log(res) -> dump the object content
     console.log('\nThis was sent by the server using socket.write() :')
     console.log(`${res.httpVersion}`)
     console.log(`${res.statusCode}`);
     console.log(`${res.rawHeaders}`);
     console.log(`${res.statusMessage} \n`);
-
+```
+```javascript
     // Make a request over an HTTP tunnel
     socket.write('GET / HTTP/1.1\r\n' +
                  'Host: www.google.com:80\r\n' +
@@ -78,7 +92,9 @@ proxy.listen(port_host, host_name, () => {
     socket.on('end', () => {
       proxy.close();
     });
-
+```
+```javascript
   });
 
 });
+```
