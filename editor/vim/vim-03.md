@@ -71,7 +71,7 @@ let $RC="$HOME/.vim/vimrc"
 ```
 Global file marker
 ------------------
-To set a global marker, you set a marker on a line within a file using `m + character`, but the character has to be in capitale so it can be reffered to outside the current buffer.
+To set a global marker, you set a marker on a line within a file using `m + character`, but the character has to be in **capitale** so it can be reffered to outside the current buffer.
 
 To go to a marked line within a file, type `' + character`, where **character** is the marker name.
 
