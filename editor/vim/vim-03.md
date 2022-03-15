@@ -266,3 +266,13 @@ ij <keywork>    "include jump, search using 'include' pattern
 
 :retab  "after changing tab setting, retab file that doesn't use conventional tab characters 
 ```
+
+Other commands
+--------------
+See the following command:
+```vim
+ls   "list open buffers/files
+pwd  "present working directory
+cd <dirname> "change current directory
+lcd <dirname> "local cd, change local/current buffer working directory
+```
