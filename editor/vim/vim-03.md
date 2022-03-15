@@ -232,3 +232,23 @@ Some languages organize their **import** or **include** statements in a way that
 
 
 [source](https://www.youtube.com/watch?v=Gs1VDYnS-Ac)
+
+Quick command summary:
+---------------------
+```vim
+vert term
+checkpath!
+:set list!
+:set list
+:set include?
+:set rtp?
+:set hidden
+:set backspace=start,eol,indent
+:set filetype plugin indent on
+:filetype detect
+setlocal path=.,**
+find <filename>
+dj <keywork>
+ij <keywork>
+retab
+```
