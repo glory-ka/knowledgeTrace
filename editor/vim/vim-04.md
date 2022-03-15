@@ -45,7 +45,7 @@ set wildmenu
 
 " THINGS TO CONSIDER:
 " - :b lets you autocomplete any open buffer
-:b <openbuffername> "press tab to autocomplete
+" :b <openbuffername> or press tab to autocomplete
 
 "b expends to bNext
 "a buffer is an open file that was not closed with q
