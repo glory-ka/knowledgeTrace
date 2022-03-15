@@ -71,7 +71,7 @@ let $RC="$HOME/.vim/vimrc"
 ```
 Global file marker
 ------------------
-To set a global marker, you set a marker on a line within a file using `m + character`, but the character has to be in capitale so it can be reffered to outside the current buffer.
+To set a global marker, you set a marker on a line within a file using `m + character`, but the character has to be in **capitale** so it can be reffered to outside the current buffer.
 
 To go to a marked line within a file, type `' + character`, where **character** is the marker name.
 
@@ -232,5 +232,26 @@ Some languages organize their **import** or **include** statements in a way that
 
 
 [source](https://www.youtube.com/watch?v=Gs1VDYnS-Ac)
+
 [Slide](https://docs.google.com/presentation/d/19m3KUN03OMwj9m_Ut4GTt1ifXuDPd2wiApy0RCtP7n4/edit#slide=id.g9417be01f0_0_706)
 
+
+Quick command summary:
+---------------------
+```vim
+vert term
+checkpath!
+:set list!
+:set list
+:set include?
+:set rtp?
+:set hidden
+:set backspace=start,eol,indent
+:set filetype plugin indent on
+:filetype detect
+setlocal path=.,**
+find <filename>
+dj <keywork>
+ij <keywork>
+retab
+```
