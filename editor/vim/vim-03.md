@@ -35,7 +35,7 @@ By default **vim** doesn't allow you to switch buffer before it is saved to disk
 
 Buffer in this case means an unsaved file. And we can switch buffers by using a command like ```: edit <filename>```.
 
-To go around it and switch buffer while keeping all the unsaved changes, we can change the buffer setting to **hidden**.
+To go around it and switch buffer while keeping all the unsaved changes, we must change the buffer setting to **hidden**.
 
 ```vim
 :set hidden
@@ -239,19 +239,30 @@ Some languages organize their **import** or **include** statements in a way that
 Quick command summary:
 ---------------------
 ```vim
-vert term
-checkpath!
-:set list!
-:set list
-:set include?
-:set rtp?
-:set hidden
-:set backspace=start,eol,indent
+:set rtp?    "check runtimepath
+:set backspace=start,eol,indent "make previous edits removable in insert mode (press backspace)
 :set filetype plugin indent on
-:filetype detect
-setlocal path=.,**
-find <filename>
-dj <keywork>
-ij <keywork>
-retab
+
+:setlocal path=.,**  "allow search into subdirectories
+:find <filename>     "works well if path+=**
+
+:filetype detect     "used to reload a file type specific configuration file (~/.vim/after/python.vim)
+
+:vert term  " Open a terminal
+
+:set define? 
+:set include?
+checkpath! " Check whether files referred by the import or include statement were included
+
+dj <keywork>    "define jump, search using 'define' pattern
+ij <keywork>    "include jump, search using 'include' pattern
+
+:set list! " See hidden characters
+:set list
+
+:set hidden  " leave current buffer without saving
+:b <buffer name> " jump to a buffer
+:first "go to first open buffer
+
+:retab  "after changing tab setting, retab file that doesn't use conventional tab characters 
 ```
