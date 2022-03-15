@@ -14,8 +14,8 @@
 
 
 " {{{ BASIC SETUP
-BASIC SETUP:
---------------
+" BASIC SETUP:
+
 
 " enter the current millenium
 set nocompatible  "Don't try to behave like vi
@@ -27,8 +27,7 @@ filetype plugin on
 
 
 
-FINDING FILES
---------------
+" FINDING FILES:
 
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
@@ -87,7 +86,7 @@ command! MakeTags !ctags -R .
 
 
 
-FILE BROWSING:
+" FILE BROWSING:
 
 " Tweaks for browsing
 
@@ -106,7 +105,7 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 
 
-SNIPPETS
+" SNIPPETS:
 
 " Read an empty HTML template and move cursor to title
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html\<CR>3jwf>a
