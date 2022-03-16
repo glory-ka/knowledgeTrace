@@ -200,12 +200,12 @@ function! PyInclude(fname)
     if len(parts) > 1
         let r = part[1]
         let joined = join([l, r], '.')
-        let fp = substitute(joined, '\.', 'g').'py'
+        let fp = substitute(joined, '\.', '/', 'g').'.py'
         if len(found)
             return found
         endif
     endif
-    return substitute (l, '\', '/', 'g').'py'
+    return substitute (l, '\', '/', 'g').'.py'
 endfunction
 
 setlocal includeexpr=PyInclude(v:fname)
