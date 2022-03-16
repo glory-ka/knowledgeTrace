@@ -180,7 +180,8 @@ checkpath!
 
 Tailored include pattern
 -----------------------
-We sometimes have to write our own regex pattern to tell vim how to correctly resolve some **import** statement.
+We sometimes have to write our own regex pattern to tell vim how to correctly resolve some **import** statement. For example, **from** xxx **import** yyy **as** ppp.
+In this case however, we don't do what vim does which is to match the **import** or **from** keywords and somehow take the expressions right after them. We instead a matching these expressions directly. We also create our modify **includeexpr**. 
 
 Here is an example for python:
 ```vim
