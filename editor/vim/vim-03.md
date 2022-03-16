@@ -154,12 +154,14 @@ This is the same setting as in the vimrc, but this time, once the **filetype** i
 
 Inlcude search
 --------------
-Vim uses a special search, using pattern, to search for files that a programmer includes into his file program.
-This include pattern search varies by language. For example, in python the pattern looks for **import** or **from** statement.
+Vim uses a special search, using regex pattern, to search for files that a programmer includes/imports into his main file.
+This **include pattern** varies by language. For example, in python the pattern looks for the **import** and the **from** keywords. Afterward, vim tries to resolve the expression after the **import** and **from** statement into a file path. It first add a **.py** in the case of python (**suffixesadd=.py**, that's the variable used to add the extension).
+If the file is not found, it passes the expression into the **includeexpr** function (it's a variable that references a function) to find the corresponding file. 
 
 To find out what include search pattern is configured for your current file type:
 ```vim
 :set include?
+:set includeexpr?
 ```
 > The include search extract the name of imported file, then a file search occurs using the configured path. So, that is also a reason why configuring path is important.
 
@@ -186,7 +188,7 @@ set include=^\s*\(from\|import\)\s*\zs\(\S\+\s\{-}\)*\ze\($\| as\)
 ```
 Because of how the include configuration work (don't ask me), we have to escape some backslash characters.
 ```vim
-:s/\(|\|\\\)/\\\1/g
+:%s/\(|\|\\\)/\\\1/g
 ```
 **Next**
 We can build a function that use the new include pattern to convert the **import** symboles into file paths.
@@ -219,7 +221,7 @@ setlocal define=^\s*\<\(def|class) "def : python methond and class: python class
 ```
 As we did with the **include** we have to replace the escape the backslash.
 ```vim
-:s/\(|\|\\\)/\\\1/g
+:%s/\(|\|\\\)/\\\1/g
 ```
 Now we can jump to/search a keyword -- in this case it would take us to either a **def** or **class** -- using the following commands:
 ```vim
@@ -246,6 +248,7 @@ Quick command summary:
 :setlocal path=.,**  "allow search into subdirectories
 :find <filename>     "works well if path+=**
 
+:set ft?             " show the filetype of the current file
 :filetype detect     "used to reload a file type specific configuration file (~/.vim/after/python.vim)
 
 :vert term  " Open a terminal
