@@ -10,6 +10,13 @@ pwd  "present working directory
 cd <dirname> "change current directory
 lcd <dirname> "local cd, change local/current buffer working directory
 ```
+Record a Macro
+--------------
+```text
+q + char 	: q start the recording a char gives it an id ---
+q 		: stops the recording.
+@ + char 	: replay the recording --> performed operations recorded.
+```
 Windows and Terminal in vim 8+
 ------------------------------
 ```vim
