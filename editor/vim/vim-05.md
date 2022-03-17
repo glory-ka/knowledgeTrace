@@ -98,12 +98,13 @@ The **registers 2-9** keep the history store the deletion history. Of course, ne
 
     
 
-### __plus register__
+### __plus or multiple register__
 
-The plus register connects to the system **clipboard**, so we can copy out and into vim.
+The **plus (+)** or **multiple (*)** register connects to the system **clipboard**, so we can copy out and into vim.
 To use it we can enter the following keys in **normal mode**.
 ```vim
 "+yy
+"*yy
 ```
 > This sequence of keys will copy the line at the cursor position. 
 
