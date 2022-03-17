@@ -1,43 +1,22 @@
-**EDIT**
+EDIT AND MOVE IN VIM
+====================
+
+EDIT
+----
 
 ```text
-.: replay the last command and keystrocks.
 dd: delete
 yy: copy
 p: past
 u: undo
 ctrl-r: redo
+.: replay the last command and keystrocks.
 ```
 ---
 
-**OPEN COMMAND HISTORY**
-* First option: 
-In command mode press **Ctrl + f**
 
-* Second option: 
-In normal mode press **'q' + ':'**
-
----
-
-**HELP AND INFO OPTIONS**
-
-
-**show how vim load data at bootup**
-:help vimint
-
-<p>&nbsp;</p>
-
-**show the list of key-map used by vim**
-```vim
-
-:help index.txt
-:help map-which-keys	" show info on how to map key
-:map!									" display the list of keys that are currently mapped
-:map									" display the list of all mapped keys
-:map verbose <key>		" return all key-map that contain <key>
-```
-
-**MOVE COMMAND**
+MOVE COMMANDS
+------------
 
 ```text
 j	: down
@@ -86,7 +65,7 @@ ctrl b	: scrolls up one full screen.
 
 ```text
 m + char	: put a marker to a line and name it 'char'
-` + char	: go to a line marker called 'char'
+` + char	: jump to a line marker called 'char'
 ```
 ..
 
@@ -103,15 +82,15 @@ B and W : same as b and w, but separate word by space.
 >>	: indents to the left --> adds tab before line.
 ```
 
-**INSERT MODE**
+**ENTER INSERT MODE**
 ```text
 o		: adds space bellow cursor
 O		: adds space above cursor
 ```
 ...
 
+**VISUAL MODE**
 ```text
-VISUAL MODE:
 V :THEN: MOVE COMMAND		: Enter visual mode then select lines, and copy [y]
 v				: Selects words within a line, and copy [y].
 ctrl + v 			: select rows
@@ -121,42 +100,30 @@ This replaces all the selected columns with text entered in [I]
 ```
 
 ---
-**REPLACE/CHANGE CHARACTER(S)**
+
+MOVE + EDIT
+------------
+
+**REPLACE/CHANGE CHARACTER(S) USING TWO KEYS**
 ```text
 
-{c + move command} 	: replaces characters within the range of move command
+c + {move command} 	: replaces characters within the range of move command
 and ENTER INSET MODE.
 c + w			: changes word --> removes word under cursor and ENTERS INSERT MODE.
 
-{d + move command} 	: deletes characters within the range of move command
-dw			: deletes word --> deletes one word at a time.
+d + {move command} 	: deletes characters within the range of move command
+d + w			: deletes word --> deletes one word at a time.
 
-D: removes all text to the right of the cursor and enters insert mode.
+D         : removes all text to the right of the cursor and enters insert mode.
 ```
 ---
 
-### __SEARCH__
 
-**SEARCH__GOBAL**
-```text
-*	: place cursor on word :THEN: press [*] to search and navigate.
-/ + char + 'Enter' :THEN: [n] to navigate to search forward.
-```
-<p>&nbsp;</p>
+**REPLACE/CHANGE CHARACTER(S) USING THREE KEYS**
 
-**SEARCH__LOCAL**
-```text
-t + char	: moves cursor behind next instance of 'char' within a line.
-f + char	: moves cursor on next instance of 'char' within a line.
-;		: navigates to the next instance of 'char' after f/t + 'char' 
-
-T + char	: LOOKUP BACKWARD
-F + char	: LOOKUP BACKWARD
-```
-___
-
-
-### __TRIPLE COMBO \[c,d] \[t, f, i] \[char, move command]__
+KEYS 1: **c**, **d**
+KEYS 2: **t**, **f**, **i**
+KEYS 3: **char**, **move command**
 
 
 ##### __\[DELETE FORWARD FROM CURSOR UP TO, BUT NOT INCLUDING, 'CHAR']__
@@ -186,141 +153,19 @@ x	: deletes single character at a time.
 r	: replaces a single character.
 R	: replaces multiple characters -> Enter replace mode.
 ```
-___
 
-__RECORD A MACRO__
-```text
-q + char 	: q start the recording a char gives it an id ---
-q 		: stops the recording.
-@ + char 	: replay the recording --> performed operations recorded.
-```
-___
-
-__COMBO__
-```text
-0 + w 	: same as ^
-d + d 	: delete line
-d + w 	: delete word
-d + n+w	: deletes <n:number> word 
-```
-___
-
-__CREATE NEW FILE__
+CREATE NEW FILE
+-----------------
 ``` text
 :new -> create a new file
 :w [path] -> save file to path
 ```
-___
 
-__OPEN VIMRC FILE__
-```vim
-:e $MYVIMRC
-```
-___
-
-__RELOAD CONFIGURATION FILE VIMRC__
+USEFUL KEY COMBINATION
+----------------------
 ```text
-:source % (or so $MYVIMRC or ~/.vimrc) 
+0 + w 	: same as ^
+d + d 	: delete line
+d + w 	: delete word
+d + n + w	: deletes <n:number> word 
 ```
-___
-
-__SEE ENV VARIABLE AND VIMINIT__
-```vim
-echo $MYVIMRC
-echo $HOME
-```
-```vim
-:help viminit
-```
-___
-
-__TAB AND SPLIT NATIVATION__
-```vim
-" go to next tab
-gt	 (or :tabn)  
-
-" go to previous tab
-gT	 (or :tabp)   
-
-" go to nth tab
-n+gt (or :tab n) 
-
-" go to first tab
-:tabf
-
-" go to last tab
-:tabl
-
-" move current tab to last position
-:tabm	
-
-" move current tab to nth position
-:tabm n		        
-```
-..
-
-```vim
-:sp filename	" open filename in horizontal split
-:vsp filename	" open filename in vertical split
-```
-..
-
-```text
-CTRL + w + T			: tranform the current split screen into a TAB
-
-CTRL + w + <h,j,k,l>	: shift focus of split on DIRECTION of current split
-CTRL + w + w			: shift focus to next split
-CTRL + w + n+			: increase size of current split by n
-CTRL + w + n-			: decrease size of current split by n
-CTRL + w + =			: return to equal split
-CTRL + w + _			: minimize current split
-CTRL + w + |			: maximize current split
-
-CTRL + w + r			: Rotate shift screen (swap position)
-CTRL + w + <H,J,K,L>	: Move current screen to fill DIRECTION 
-```
-
-__KEYS AND FORMAT__
-```text
-:%s/
-//g		:TO enter ^M press: ctrl + v + m --> This will replace all
-occruence of ^M with an empty string. (help ffs, help ++ff)
-```
-
-__TO SEE THE RESPERSENTATION OF A KEY__
-```text
-1. TYPE ':'
-2. THEN CLICK CTRL + v + \<KEY>
-```
-
-__MAP KEYS DIFFICULT TO IDENTIFY__
-```text
-1. ENTER INSERT OR COMMAND MODE
-2. TYPE: set \<KEY1-KEY2>='Press Ctlr + v :THEN: Press KEY1+KEY2' 
-3. IF RESULT OF STEP 2 HAS SYBMOL '^\[' REPLACE IT BY '\<Esc>' 
-4. FINALLY USE \<KEY1-KEY2> TO MAP YOUR KEYS WITH MAP FUNCITION
-```
-
-**Example**
-```vim
-set <A-K>=ê  " ê = Alt + j
-nnoremap 	<A-k> mz:m+<cr>`z 
-```
-___
-
-### __DISABLE BELL SOUND__
-```vim
-1. set belloff=all  "Option one
-2. autocmd GUIEnter *set vb t_vb=  " Option two for Gvim or vim
-3. :help visualbell
-4. set noerrbells
-5. set vb t_vb=
-```
-___
-
-### __LINE MARKER AND LINE SIZE:__
-```vim
-1. set textwidth=122   "set the length of a line
-2. set colorcolumn=122 " put a color at the location of the max line length
-```
-
