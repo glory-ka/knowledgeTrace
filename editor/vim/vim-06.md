@@ -1,3 +1,20 @@
+Insert text from a register
+--------------------------
+```vm
+ctrl + r
+```
+
+
+Last inserted text
+------------------
+```vim
+ctrl + a
+```
+
+```vim
+ctrl + r + .
+```
+
 Simple word completion
 ----------------------
 ```vim
