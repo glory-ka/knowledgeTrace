@@ -153,6 +153,7 @@ x	: deletes single character at a time.
 r	: replaces a single character.
 R	: replaces multiple characters -> Enter replace mode.
 ```
+---
 
 CREATE NEW FILE
 -----------------
@@ -160,6 +161,7 @@ CREATE NEW FILE
 :new -> create a new file
 :w [path] -> save file to path
 ```
+---
 
 USEFUL KEY COMBINATION
 ----------------------
