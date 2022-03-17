@@ -23,3 +23,16 @@ T + char	: LOOKUP BACKWARD
 F + char	: LOOKUP BACKWARD
 ```
 ---
+
+DESABLE AND ENABLE SEARCH HIGHLIGHT
+-----------------------------------
+It is nice to have search result highlighted when we do work in vim. However, they don't go away after you are done searching and become annoying.
+A simple way to remove the highlight on the words we searched is to enter the following commands: 
+```vim
+:nohls " no highlight search, in command mode
+
+" or
+:set hls! " set highlight search to the oposite of its current value (enable or disable)
+```
+> Be aware that you have to re-enable highlight for future search. Otherwise, the highlight will not appear in the next search.
+
