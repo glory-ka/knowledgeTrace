@@ -3,7 +3,9 @@ Vim key Combinations
 
 **Lauch vim using vi binary:**
 ```vim
-vi -Nu NORC \<filename>
+vi -Nu NORC <filename>
+" or
+vi -Nu NONE <filename>
 ```
 **Option:**
 ```
@@ -138,17 +140,21 @@ This would look like the following:
 > It might not be a good idea to set the path all files and subdirectories in a large project, but instead have a more targeted setting. This is because vim would index the current directory and all its children. 
 
 **Local path**
-One important thing with paths is that the path setting is only loaded when we first open vim. This means that if we open any other file afterward within vim, the path of the first file would be the same for every file.
 
-To circomvent that we have to set a local path that applies to every new open file.
+One important thing with paths is that the path variable is set when we first open vim. This means that if we open any other file afterward within vim, the path of the first file would be the same for every file.
 
->In order for this setting to work, we have to first enable the filetype detection, then create a configuration file for a target file type (ex: .py, .c, .cpp). To not override the default vim configuration for a type of file, we have to put the customed configuration file in the /vim/after directory. The customed configuration file should have the same name as the file type it seeks to customize. ex: python.vim for python file.  
+So, we might not want all buffer to have the path set to `path=.,**`. This is because the `**` makes vim index the entire directory. And in some project, like **javascript with node** we might have lot of subfolders. This would slowdown the search. So, it is better to not add this path in the **vimrc**.
+
+To circomvent that we have to set a local path that target specific directories were we know our code resides. We can manually set each buffer we open with the appropriate path or we can create a vim configuration that applies to certain filetype.
+
+>In order for this setting to work, we have to first enable the filetype detection, then create a configuration file for a target file type (ex: .py, .c, .cpp). To not override the default vim configuration for a type of file, we have to put the customed configuration file in the /vim/after directory. The customed configuration file should have the same name as the file type it seeks to customize.
+ex: python.vim for python file.  
 
 In your customed configuration file for a file type, add the following lines.
 > ex: ~/.vim/ftplugin/after/python.vim
 
 ```vim
-setlocal path=.,**
+setlocal path=.,./src/**,./doc/**
 ```
 This is the same setting as in the vimrc, but this time, once the **filetype** is detected, vim runs all configuration related to that file, and that would inclde the configuration file in the **~/.vim/ftplugin/after** directory for that file type.
 
@@ -252,7 +258,6 @@ Quick command summary:
 :set ft?             " show the filetype of the current file
 :filetype detect     "used to reload a file type specific configuration file (~/.vim/after/python.vim)
 
-:vert term  " Open a terminal
 
 :set define? 
 :set include?
@@ -280,3 +285,17 @@ pwd  "present working directory
 cd <dirname> "change current directory
 lcd <dirname> "local cd, change local/current buffer working directory
 ```
+Windows and Terminal in vim 8+
+------------------
+```vim
+:vert term  " Open a vertical terminal
+:bot  term  " Open a terminal at the bottom of the screen
+:bot  15sp +term  " Open terminl at the bottom with split hight of 15
+:sf <filename>  " split find. find a file and open it on a split screen
+````
+...
+
+```vim
+:b 2         " jump to buffer number 2 -- :b <number>
+```
+
