@@ -74,6 +74,13 @@ We can see the value of the registers using the follwing commands:
 ### __unnamed register__
 
 The **unnamed register** is the default register where vim stores all the **delete, copy/yank** data. In addition, the **unnamed** register is also used even when we specify another register or when some data are stores on other registers.
+The **unnamed** register is represented by the `""` symbole to mean **empty**, I guess. However, to refer to it, don't use any name after the `"` symbole.
+See example below:
+```vim
+"yy
+"p
+"dw
+```
 
 ### __named register__
 
