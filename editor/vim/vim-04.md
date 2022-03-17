@@ -1,3 +1,4 @@
+```vim
 "       HOW TO DO 90% OF WHAT PLUGINS DO (WITH JUST VIM)
 
 
@@ -13,8 +14,8 @@
 
 
 " {{{ BASIC SETUP
-BASIC SETUP:
---------------
+" BASIC SETUP:
+
 
 " enter the current millenium
 set nocompatible  "Don't try to behave like vi
@@ -26,19 +27,16 @@ filetype plugin on
 
 
 
-FINDING FILES
---------------
+" FINDING FILES:
 
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
-```vim
 set path+=**
-```
+
 
 " Display all matching files when we tab complete
-```vim
 set wildmenu
-```
+
 
 " NOW WE CAN:
 " - Hit tab to :find by partial match
@@ -46,13 +44,12 @@ set wildmenu
 
 " THINGS TO CONSIDER:
 " - :b lets you autocomplete any open buffer
-```vim
-:b <openbuffername> "press tab to autocomplete
+" :b <openbuffername> or press tab to autocomplete
 
 "b expends to bNext
 "a buffer is an open file that was not closed with q
 "good when you open new edit in the same window
-```
+
 
 
 " TAG JUMPING:
@@ -72,8 +69,7 @@ command! MakeTags !ctags -R .
 
 
 
-AUTOCOMPLETE
-------------
+" AUTOCOMPLETE:
 
 " The good stuff is documented in |ins-completion|
 
@@ -90,18 +86,17 @@ AUTOCOMPLETE
 
 
 
-FILE BROWSING
--------------
+" FILE BROWSING:
 
 " Tweaks for browsing
-```vim 
+
 let g:netrw_banner=0        " disable annoying banner
 let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-```
+
 
 " NOW WE CAN:
 " - :edit a folder to open a file browser
@@ -110,16 +105,15 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 
 
-SNIPPETS
---------
+" SNIPPETS:
 
 " Read an empty HTML template and move cursor to title
-```vim
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html\<CR>3jwf>a
-```
+
 
 
 
 "                    Download this file at:
 "                github.com/mcantor/no_plugins
 
+```

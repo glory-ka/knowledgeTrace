@@ -35,7 +35,7 @@ By default **vim** doesn't allow you to switch buffer before it is saved to disk
 
 Buffer in this case means an unsaved file. And we can switch buffers by using a command like ```: edit <filename>```.
 
-To go around it and switch buffer while keeping all the unsaved changes, we can change the buffer setting to **hidden**.
+To go around it and switch buffer while keeping all the unsaved changes, we must change the buffer setting to **hidden**.
 
 ```vim
 :set hidden
@@ -154,12 +154,14 @@ This is the same setting as in the vimrc, but this time, once the **filetype** i
 
 Inlcude search
 --------------
-Vim uses a special search, using pattern, to search for files that a programmer includes into his file program.
-This include pattern search varies by language. For example, in python the pattern looks for **import** or **from** statement.
+Vim uses a special search, using regex pattern, to search for files that a programmer includes/imports into his main file.
+This **include pattern** varies by language. For example, in python the pattern looks for the **import** and the **from** keywords. Afterward, vim tries to resolve the expression after the **import** and **from** statement into a file path. It first add a **.py** in the case of python (**suffixesadd=.py**, that's the variable used to add the extension).
+If the file is not found, it passes the expression into the **includeexpr** function (it's a variable that references a function) to find the corresponding file. 
 
 To find out what include search pattern is configured for your current file type:
 ```vim
 :set include?
+:set includeexpr?
 ```
 > The include search extract the name of imported file, then a file search occurs using the configured path. So, that is also a reason why configuring path is important.
 
@@ -178,7 +180,8 @@ checkpath!
 
 Tailored include pattern
 -----------------------
-We sometimes have to write our own regex pattern to tell vim how to correctly resolve some **import** statement.
+We sometimes have to write our own regex pattern to tell vim how to correctly resolve some **import** statement. For example, **from** xxx **import** yyy **as** ppp.
+In this case however, we don't do what vim does which is to match the **import** or **from** keywords and somehow take the expressions right after them. We instead a matching these expressions directly. We also create our modify **includeexpr**. 
 
 Here is an example for python:
 ```vim
@@ -186,7 +189,7 @@ set include=^\s*\(from\|import\)\s*\zs\(\S\+\s\{-}\)*\ze\($\| as\)
 ```
 Because of how the include configuration work (don't ask me), we have to escape some backslash characters.
 ```vim
-:s/\(|\|\\\)/\\\1/g
+:%s/\(|\|\\\)/\\\1/g
 ```
 **Next**
 We can build a function that use the new include pattern to convert the **import** symboles into file paths.
@@ -197,12 +200,12 @@ function! PyInclude(fname)
     if len(parts) > 1
         let r = part[1]
         let joined = join([l, r], '.')
-        let fp = substitute(joined, '\.', 'g').'py'
+        let fp = substitute(joined, '\.', '/', 'g').'.py'
         if len(found)
             return found
         endif
     endif
-    return substitute (l, '\', '/', 'g').'py'
+    return substitute (l, '\', '/', 'g').'.py'
 endfunction
 
 setlocal includeexpr=PyInclude(v:fname)
@@ -219,7 +222,7 @@ setlocal define=^\s*\<\(def|class) "def : python methond and class: python class
 ```
 As we did with the **include** we have to replace the escape the backslash.
 ```vim
-:s/\(|\|\\\)/\\\1/g
+:%s/\(|\|\\\)/\\\1/g
 ```
 Now we can jump to/search a keyword -- in this case it would take us to either a **def** or **class** -- using the following commands:
 ```vim
@@ -239,19 +242,41 @@ Some languages organize their **import** or **include** statements in a way that
 Quick command summary:
 ---------------------
 ```vim
-vert term
-checkpath!
-:set list!
-:set list
-:set include?
-:set rtp?
-:set hidden
-:set backspace=start,eol,indent
+:set rtp?    "check runtimepath
+:set backspace=start,eol,indent "make previous edits removable in insert mode (press backspace)
 :set filetype plugin indent on
-:filetype detect
-setlocal path=.,**
-find <filename>
-dj <keywork>
-ij <keywork>
-retab
+
+:setlocal path=.,**  "allow search into subdirectories
+:find <filename>     "works well if path+=**
+
+:set ft?             " show the filetype of the current file
+:filetype detect     "used to reload a file type specific configuration file (~/.vim/after/python.vim)
+
+:vert term  " Open a terminal
+
+:set define? 
+:set include?
+checkpath! " Check whether files referred by the import or include statement were included
+
+dj <keywork>    "define jump, search using 'define' pattern
+ij <keywork>    "include jump, search using 'include' pattern
+
+:set list! " See hidden characters
+:set list
+
+:set hidden  " leave current buffer without saving
+:b <buffer name> " jump to a buffer
+:first "go to first open buffer
+
+:retab  "after changing tab setting, retab file that doesn't use conventional tab characters 
+```
+
+Other commands
+--------------
+See the following command:
+```vim
+ls   "list open buffers/files
+pwd  "present working directory
+cd <dirname> "change current directory
+lcd <dirname> "local cd, change local/current buffer working directory
 ```
