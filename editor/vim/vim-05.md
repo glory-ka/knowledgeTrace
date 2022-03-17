@@ -68,9 +68,12 @@ For example, if we type `:s/old/new/` and then type `":p`, the command we just t
 We can see the value of the registers using the follwing commands:
 ```vim
 :register  "Show all registers
-:register : " 0 "Only show register : " and 0
+:register : 0 "Only show register : and 0
 ```
 
+### __unnamed register__
+
+The **unnamed register** is the default register where vim stores all the **delete, copy/yank** data. In addition, the **unnamed** register is also used even when we specify another register or when some data are stores on other registers.
 
 ### __named register__
 
@@ -87,7 +90,6 @@ There are **10 number registers**. When we **copy/yank** data, it is stored in r
 The **registers 2-9** keep the history store the deletion history. Of course, new deletion goes to **register 1** and the old deletions get pushed out of **register 9**.
 
     
-
 
 ### __plus register__
 
