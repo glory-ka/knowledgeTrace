@@ -1,14 +1,14 @@
 TAB AND SPLIT NATIVATION
 ========================
 
-OPEN Windows
+Open Windows
 -------------
 ```vim
 :sp filename	" open filename in horizontal split
 :vsp filename	" open filename in vertical split
 ```
 
-NATIGATE Windows 
+Navigate Windows 
 ----------------
 ```text
 CTRL + w + T			: tranform the current split screen into a TAB
@@ -25,8 +25,15 @@ CTRL + w + r			: Rotate shift screen (swap position)
 CTRL + w + <H,J,K,L>	: Move current screen to fill DIRECTION 
 ```
 
+Open Tabs
+---------
+```vim
+:tabnew        " Create and unnamed buffer/file in a new tab
+:tabnew <name> " Create and open new buffer
+:tabnew <path> " Open existing file in new tab
+```
 
-Nativigate Tabs
+Navigate Tabs
 ---------------
 **In Normal mode**
 ```vim
