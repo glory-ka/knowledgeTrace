@@ -45,6 +45,7 @@ However, we can add to it and use for other things too.
 Use vim as grep
 ---------------
 You can use `vim` command to select specific text within a file and change it. To apply the change to multiple files, we can use the `args` variable.
+Using **vimgrep** create a **quickfix list** that we can query using commands that start with `c`. See more in **help** documents. 
 
 ```vim
 :vim /TODO/ %  " This searche the pattern "TODO" in the current buffer(%)
