@@ -1,5 +1,5 @@
-SEARCH IN VIM AND REGISTERS
-===========================
+VIM SEARCH, REGISTERS AND NATIGATION
+====================================
 
 SEARCH SINGLE BUFFER IN NORMAL MODE
 -----------------------------------
@@ -22,12 +22,4 @@ f + char	: moves cursor on next instance of 'char' within a line.
 T + char	: LOOKUP BACKWARD
 F + char	: LOOKUP BACKWARD
 ```
-___
-
-RECORD A MACRO
---------------
-```text
-q + char 	: q start the recording a char gives it an id ---
-q 		: stops the recording.
-@ + char 	: replay the recording --> performed operations recorded.
-```
+---
