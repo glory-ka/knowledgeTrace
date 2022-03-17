@@ -1,3 +1,6 @@
+VIM TEXT COMPLETION KEYS
+========================
+
 Insert text from a register
 --------------------------
 ```vm
