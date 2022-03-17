@@ -276,26 +276,5 @@ ij <keywork>    "include jump, search using 'include' pattern
 :retab  "after changing tab setting, retab file that doesn't use conventional tab characters 
 ```
 
-Other commands
---------------
-See the following command:
-```vim
-ls   "list open buffers/files
-pwd  "present working directory
-cd <dirname> "change current directory
-lcd <dirname> "local cd, change local/current buffer working directory
-```
-Windows and Terminal in vim 8+
-------------------
-```vim
-:vert term  " Open a vertical terminal
-:bot  term  " Open a terminal at the bottom of the screen
-:bot  15sp +term  " Open terminl at the bottom with split hight of 15
-:sf <filename>  " split find. find a file and open it on a split screen
-````
-...
 
-```vim
-:b 2         " jump to buffer number 2 -- :b <number>
-```
 
