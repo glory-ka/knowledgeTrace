@@ -1,5 +1,5 @@
 VIM ENVIRONEMENT
-----------------
+================
 
 **OPEN COMMAND HISTORY**
 1. First option:
@@ -47,17 +47,6 @@ echo $HOME
 ```vim
 :help viminit
 ```
-
-Show the list of key-map used by vim
-------------------------------------
-```vim
-:help index.txt
-:help map-which-keys  " show info on how to map key
-:map!                 " display the list of keys that are currently mapped
-:map                  " display the list of all mapped keys
-:map verbose <key>    " return all key-map that contain <key>
-```
----
 
 DISABLE BELL SOUND
 ------------------
