@@ -114,6 +114,46 @@ This is possible with the follwing command:
 set clipboard=unnamed
 ```
 
+### __hashtag and percent register__
+
+The **hastag (#)** and **percent (%)** register stores the **current buffer/file** name and the path to the **alternate buffer**.
+To see the open buffers use the `ls` command.
+```vim
+"%
+"#
+```
+
+### __The equal/expression register__
+
+This register is used to store data that can be evaluated/computed/executed. Mostly used to add up numbers or execute some math functions. However, it can do more than that.
+```vim
+" In Normal mode
+
+"=23+45 
+put = #print the result onto the screen.
+
+" we can also enter the expression directly	
+=abs(20-80)
+=char2nr('A')
+
+" In Insertion Mode
+" As with all registers, to write into or past from a register in insertion mode type
+" Ctrl + R then <registername>. In this case, <Ctrl>R + =
+
+<Ctrl>r + =
+=&"
+put =
+```
+
+### __underscore register__
+
+The **underscore** register, referred to as the **black hole register** does not store any data sent to it. Acts like **/dev/null**.
+```vim
+"_yy
+"_d
+```
+
+
 Change directories
 ------------------
 One quick and easy way to change dirctory is to `lcd` (local cd) to the head of the current file. The current file is denoted by `%`.
