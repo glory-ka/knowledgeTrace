@@ -130,7 +130,7 @@ This register is used to store data that can be evaluated/computed/executed. Mos
 " In Normal mode
 
 "=23+45 
-put = #print the result onto the screen.
+:put =        # print the result onto the screen.
 
 " we can also enter the expression directly	
 =abs(20-80)
@@ -142,7 +142,7 @@ put = #print the result onto the screen.
 
 <Ctrl>r + =
 =&"
-put =
+:put =
 ```
 
 ### __underscore register__
