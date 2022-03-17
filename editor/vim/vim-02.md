@@ -8,7 +8,7 @@ VIM ENVIRONEMENT
 
 2. Second option:
 
-  **In normal mode** press **'q' + ':'**
+  **In normal mode** press **q + :**
 
 ---
 
