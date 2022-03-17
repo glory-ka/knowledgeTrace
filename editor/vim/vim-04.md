@@ -6,8 +6,8 @@ SEARCH SINGLE BUFFER IN NORMAL MODE
 
 **SEARCH__GOBAL**
 ```vim
-*	  " search word under the cursor (forward search). Press * or n to navigate.
-#   " same as * but searches backward. Press # or n to natigate.
+*    " search word under the cursor (forward search). Press * or n to navigate.
+#    " same as * but searches backward. Press # or n to natigate.
 
 :/ + char + <Enter>  " search all occurances of char. Press n to go to next match, and N to previous match. 
 ```
