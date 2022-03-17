@@ -11,7 +11,7 @@ cd <dirname> "change current directory
 lcd <dirname> "local cd, change local/current buffer working directory
 ```
 Windows and Terminal in vim 8+
-------------------
+------------------------------
 ```vim
 :vert term          " Open a vertical terminal
 :bot  term          " Open a terminal at the bottom of the screen
