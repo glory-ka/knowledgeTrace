@@ -1,5 +1,5 @@
-VIM SEARCH, REGISTERS AND NATIGATION
-====================================
+VIM SEARCH AND NAVIGATION WITH REGISTERS
+========================================
 
 SEARCH SINGLE BUFFER IN NORMAL MODE
 -----------------------------------
@@ -10,6 +10,9 @@ SEARCH SINGLE BUFFER IN NORMAL MODE
 #    " same as * but searches backward. Press # or n to natigate.
 
 :/ + char + <Enter>  " search all occurances of char. Press n to go to next match, and N to previous match. 
+
+" Vim stores the latest searched text using * # or / in the [/ registiter]
+:%s/<ctrl + r + />/newWord/g
 ```
 <p>&nbsp;</p>
 
