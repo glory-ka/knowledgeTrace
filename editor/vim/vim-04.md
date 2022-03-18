@@ -1,6 +1,23 @@
 VIM SEARCH AND NAVIGATION WITH REGISTERS
 ========================================
 
+SEARCH SCOPE
+------------
+
+**Search and Replace on the same line as the cursor**
+```vim
+:s/old/new/     " only replace the fist occurence of old on the line
+
+:s/old/new/g    " replace all occurences of old on the line
+```
+**Search and Replace on the entire buffer/file**
+```vim
+:%s/old/new/    " only replace the first occurence of old in the buffer
+
+:%s/old/new/g    " replace all occurences of old in the buffer
+```
+
+
 SEARCH SINGLE BUFFER IN NORMAL MODE
 -----------------------------------
 
