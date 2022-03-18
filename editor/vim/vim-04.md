@@ -11,7 +11,7 @@ SEARCH SINGLE BUFFER IN NORMAL MODE
 
 :/ + char + <Enter>  " search all occurances of char. Press n to go to next match, and N to previous match. 
 
-" Vim stores the latest searched text using * # or / in the [/ registiter]
+" Vim stores the latest searched text using * # or / in the [/ registiter]. Access it in command mode with <ctrl>r + /
 :%s/<ctrl + r + />/newWord/g
 ```
 <p>&nbsp;</p>
