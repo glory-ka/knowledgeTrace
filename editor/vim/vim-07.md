@@ -101,6 +101,9 @@ For example we can add a missing command at the end of a **macro** or edit the e
 ```vim
 let @+='iThis is awesome' " don't forget the leading i to enter insert mode 
 @+                        " This will display "This is awesome" in the buffer
+
+```
+
 ---
 
 **Expression Register(=)**
