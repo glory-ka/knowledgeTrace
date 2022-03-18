@@ -16,7 +16,7 @@ ctrl-r: redo
 
 
 MOVE COMMANDS
-------------
+-------------
 
 ```text
 j	: down
@@ -154,6 +154,25 @@ r	: replaces a single character.
 R	: replaces multiple characters -> Enter replace mode.
 ```
 ---
+
+...
+
+JUMP BETWEEN BUFFERS
+--------------------
+When you open a file, vim essentially loads it into a **buffer**. So, when you open a new file in the same windows -- without spliting the screen or in a separate tab -- the first file is still loaded in the previous buffer. To move between buffers, you can use the following methods:
+
+1. Using a combination of keys
+ ```vim
+ " In normal mode
+ <Ctrl> r
+ ```
+ 
+2. Using the register value that old the **alternate** buffer
+```vim
+" In command mode
+:edit <ctrl>r + #
+```
+
 
 CREATE NEW FILE
 -----------------
