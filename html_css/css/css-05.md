@@ -47,10 +47,12 @@ The **Media query** type:
 + speech: screen readers
 
 The general syntax:
-
-@media `not|only` `mediatype` and (media feature) {
+```css
+@media not|only mediatype and (media feature) {
     /* Style */
 }
+```
+...
 
 ```css
 @media only screen and (min-width: 800px) {
