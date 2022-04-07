@@ -66,12 +66,13 @@ This sections is also a complement to the information in the **css-04.md** file.
 Problem
 -------
 
-Let's have four **block** elements stack on top of one another in order written in the html file.
-Let's these four **block** elements be children of another **block** element (container).
-Let's set the **container width to 800px** (This means the max-width of any child is therefore 800px).
++ Let's have four **block** elements stack on top of one another in order written in the html file.
++ Let's these four **block** elements be children of another **block** element (container).
++ Let's set the **container width to 800px** (This means the max-width of any child is therefore 800px).
 
-Let's set the **second element width to 200px**.
-Let's set the **third elements width to 600px**.
+
++ Let's set the **second element width to 200px**.
++ Let's set the **third elements width to 600px**.
 
 If we **float left** the second element, the third element would goes to its right. However, given that we have a fixed **width** of **800px**, if we add padding or content, we may exceed the 800px and break the float effect.
 
