@@ -16,7 +16,7 @@ ctrl-r: redo
 
 
 MOVE COMMANDS
-------------
+-------------
 
 ```text
 j	: down
@@ -154,6 +154,9 @@ r	: replaces a single character.
 R	: replaces multiple characters -> Enter replace mode.
 ```
 ---
+
+...
+
 
 CREATE NEW FILE
 -----------------

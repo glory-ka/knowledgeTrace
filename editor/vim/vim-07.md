@@ -10,6 +10,13 @@ pwd  "present working directory
 cd <dirname> "change current directory
 lcd <dirname> "local cd, change local/current buffer working directory
 ```
+Record a Macro
+--------------
+```text
+q + char 	: q start the recording a char gives it an id ---
+q 		: stops the recording.
+@ + char 	: replay the recording --> performed operations recorded.
+```
 Windows and Terminal in vim 8+
 ------------------------------
 ```vim
@@ -61,3 +68,53 @@ Using **vimgrep** create a **quickfix list** that we can query using commands th
 :cdo s/TODO/DONE/g " c do, replace all occurrence of TODO with DONE
 ```
 To repeat the previous `c{x}` command,`cn` or `cp`, press `@:` in **normal mode**.
+
+Registers
+---------
+
+**Registers as variable in normal mode**
+
+Although some commands immediately interprete or extract the value of a register, some are not able to differentiate variables and registers.
+To fix it, we simply have to use `@` before any register to write to it or extract its value.
+```vim
+" Initialize the register connect to the system clipboard to the value of the the register that hold the current file path
+:let @+=@%  " You can the new value outside of vim.
+
+:@:   " In normal mode. Use the value in the : register the last entered command.
+```
+---
+
+**Macro with Registers**
+
+Vim stores **macros** in registers. In fact, the name of the **macro** and the name of the **register** are the same. For exemple, **qw** stores the macro in register **w**.
+What does it mean? Well, it means you can enter a macro once and edit it instead of recording it again and again until you got it right.
+For example we can add a missing command at the end of a **macro** or edit the entire thing using **registers**.
+```vim
+" In command mode
+
+:let @W=i;           " Upper case to append to register w. Enter insert mode (i) and add a comma (;)
+
+:let @w=<CRTL>R + w  " Extract the macro and edit it as you want 
+```
+> This also means that if we are in normal mode, we can execute any register as if it was a macro. (e.i @+ in normal mode)
+
+```vim
+let @+='iThis is awesome' " don't forget the leading i to enter insert mode 
+@+                        " This will display "This is awesome" in the buffer
+
+```
+
+---
+
+**Expression Register(=)**
+
+Use the **expression register** in **insert mode** to past the result of command into the buffer.
+```vim
+<CTRL>R + =
+=23+34 <CR>      " The result is past at the postion of the cursor
+
+<CTRL>R + =
+=system('dir')   " Past the content of the current directory at the cursor position
+```
+
+
