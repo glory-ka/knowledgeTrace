@@ -9,7 +9,7 @@ There are three types of CSS Positioning:
 
 Normal Document Flow
 --------------------
-This is the default browser layout method. Its displays the content, in order, found in HTML elememts. It stacks up elements on top of each other.
+This is the default browser layout method. Its displays the content, in order, found in HTML elements. It stacks up elements on top of each other.
 
 **Block-level elements**:
 + Headings
@@ -24,7 +24,7 @@ This is the default browser layout method. Its displays the content, in order, f
 + Links
 + Spans
 
-**Note**: **Block-level elements** take their own space inside a document normal flow and stack up on top of one another like blocks. On the other hand, **inline elements** appear insde of **block-level elements** and stack themselves according to the flow of **line boxes**.
+**Note**: **Block-level elements** take their own space inside a document normal flow and stack up on top of one another like blocks. On the other hand, **inline elements** appear inside of **block-level elements** and stack themselves according to the flow of **line boxes**.
 
 
 Position
@@ -34,7 +34,7 @@ The **position** property accepts one of five **values**:
 
 + static    (use normal **normal document flow**: default)
 + relative  (still consider part of **normal document flow** with extra)
-+ inherit   (use postion value of parent)
++ inherit   (use position value of parent)
 + absolute
 + fixed
 
@@ -43,7 +43,7 @@ Relative position
 
 This is consider part of the **Normal document flow**, but we can use **offset value** (top, bottom, left, right) to alter the position of the elements.
 
-The main characteristic of an element that has **relative postition** relate to how other element around it behave.
+The main characteristic of an element that has **relative position** relate to how other element around it behave.
 
 Let's imagine three boxes, box1 to box3, stack up on top of one another.
 Then let's give box1 a **relative position (position: relative;)**. If we move the box to the left using **offset value (left: [n]px)**, the elements underneath do not fill the empty space box1 creates after we move it. That is because **relative positioning** does not remove an element from the **normal flow**.
@@ -62,9 +62,9 @@ box1 {
 Absolute Positioning
 --------------------
 
-An elements that has a its **position** property set to **absolute** is positionned relative to its nearest parent element that has position (that has a **position** property set). If no position is found, the element positions itself relative to the **body** tag which means it positions itself relative to the viewport.
+An elements that has a its **position** property set to **absolute** is positioned relative to its nearest parent element that has position (that has a **position** property set). If no position is found, the element positions itself relative to the **body** tag which means it positions itself relative to the viewport.
 
-Whereas an element with **relative postion** would create a hole when moved to a different position on the screen (using **offset values**), elements underneath an element with **absolute position** move to fill up the void. This is because moving an element with **relative position** removes it from the **normal flow**.
+Whereas an element with **relative position** would create a hole when moved to a different position on the screen (using **offset values**), elements underneath an element with **absolute position** move to fill up the void. This is because moving an element with **relative position** removes it from the **normal flow**.
 
 ```css
 
@@ -80,7 +80,7 @@ box1 {
 
 Fixed Positioning
 -----------------
-Fixed elements are considered to be **absolutetly positioned**, but they are always positioned relative the the active viewport. That is why menu bar for example stay in place when we scroll up or down a page.
+Fixed elements are considered to be **absolutely positioned**, but they are always positioned relative the active viewport. That is why menu bar for example stay in place when we scroll up or down a page.
 
 
 Element Stacking
@@ -103,7 +103,7 @@ The element with largest **z-index** value has the highest priority.
 Floats
 ------
 Float is a CSS layout technique based on the relationship of the elements being floated (I know, right!!).
-There are some similarities between **float** and **absolute positioning** wherein holes in the layout are filled with other elements. However, where with **absolute positining** we could move an element using the **offset values**, **floated** element are either pushed to the farthest possible right or left position.
+There are some similarities between **float** and **absolute positioning** wherein holes in the layout are filled with other elements. However, where with **absolute positioning** we could move an element using the **offset values**, **floated** element are either pushed to the farthest possible right or left position.
 
 Moreover, when we give a float property to an element, the element shrinks to its smallest possible **width** without altering its text content (Inline boxes). Another element, the one bellow it, then goes to fill the hole.
 
@@ -114,7 +114,7 @@ The **float** property can take the following values:
 + inherit
 
 Let's again use the example of three boxes stuck up on top of one another.
-When we give the proporty **float** with value **right** to box1, it moves as far as it can to the right. Then the box2 fills the space box1 used to occupy.
+When we give the property **float** with value **right** to box1, it moves as far as it can to the right. Then the box2 fills the space box1 used to occupy.
 
 **Float** is a easy way to create a two column layout.
 
@@ -143,7 +143,7 @@ We can also for example put the three boxes side by side:
 Clear
 -----
 The **clear** property is used to prevent an element from being **moved to the hole left by a floated element.**
-This is very useful since we might want to create a layout with two side by side boxes with space in between (float one left and float the other right), but we also want a third box bellow. This wouldn't be possible as the third box would also move in between the two boxes. To stop the rearrengment of the third box, we use the **clear** property.
+This is very useful since we might want to create a layout with two side by side boxes with space in between (float one left and float the other right), but we also want a third box bellow. This wouldn't be possible as the third box would also move in between the two boxes. To stop the rearrangement of the third box, we use the **clear** property.
 
 The **clear** property can take the following values:
 
@@ -152,3 +152,4 @@ The **clear** property can take the following values:
 + right - The element is pushed below right floated elements
 + both - The element is pushed below both left and right floated elements
 + inherit - The element inherits the clear value from its parent
+
