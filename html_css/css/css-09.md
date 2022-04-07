@@ -74,7 +74,7 @@ Problem
 + Let's set the **second element width inside the container to 200px**.
 + Let's set the **third elements width inside the container to 600px**.
 
-If we **float left** the **second** element, the **third** element would goes to its right. However, given that we have a fixed **width** of **800px**, if we add **padding** or content, we may exceed the **800px** and break the float effect.
+If we **float left** the **second** element, the **third** element would go to its right. However, given that we have a fixed **width** of **800px**, if we add **padding** or content, we may exceed the **800px** and break the float effect.
 
 > Despite what we may think, the total width of the second and third elements would not add up to 800px (200px + 600px).
 Instead, the total width would be the width of the element that floats around the floated element.
