@@ -1,7 +1,7 @@
 Basic Font Properties
 ---------------------
 
-+ Font Family (font-familyf)
++ Font Family (font-family)
 + Font Weight (font-weight)
 + Font style  (font-style)
 + Font size   (font-size)
@@ -19,16 +19,18 @@ p {
 
 System fonts vs Web fonts
 -----------------------
-The **system font** are default fonts intalled on a browser. So, if a font in the **Stylesheet** linked to a page doesn't exist, the browser would use its default **Fonts**.
+The **system fonts** are default fonts installed on a browser. So, if a font family, in a **Stylesheet** linked to a page, doesn't exist, the browser would use its default **Fonts**.
 [CSS Web safe Fonts](https://www.w3schools.com/cssref/css_websafe_fonts.asp)
 
-However, we can also use **Web fonts** which are external stylesheet that we load to a project. **Web fonts** would make the page renders the same on all plateform.
+To remedy this problem, we can use **Web fonts**. 
+**Web fonts** are external or additional **fonts** that we load to a project. An advantage of using **Web fonts** is the **fonts** would look the same across all platforms.
 
-To load **Web fonts** we use the **@font-face** rule, **@import** rule, **Link to a Stylesheet** or **Load via JavaScript**:
+To load **Web fonts** we use the **@font-face** or **@import** rule, **Link to a Stylesheet** or **Load via JavaScript**:
 
 [Web fonts with @font-face rule](https://css-tricks.com/snippets/css/using-font-face)
 [Web fonts with @import rule](https://goo.gl/35LphC)
 
+> Linking to a Stylesheet is a little redundant since it probably uses the @font-face or @import rules to load the web fonts.
 
 The Box Model
 -------------
@@ -42,7 +44,7 @@ Ex:
 
 **box-sizing: content-box**
 ```css
-/* The content-box property of the box-sizing uses the previous formula to calculate the to total width */
+/* The content-box property of the box-sizing uses the previous formula to calculate the element total width */
 .box {
     width: 300;
     padding: 10px;
@@ -52,7 +54,7 @@ Ex:
 ```
 **box-sizing: border-box**
 ```css
-/* The border-box property of the box-sizing uses the width value assign the total width*/
+/* The border-box property of the box-sizing uses the width value to assign the element total width */
 .box {
     width: 300;
     padding: 10px;

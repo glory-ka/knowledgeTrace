@@ -1,13 +1,14 @@
 Color
 -----
 There are three ways to define colors in css:
-+ **Hexadecomal notation**
++ **Hexadecimal notation**
 + **RGB Color**
 + **HSL (Hue, Saturation, Lightness)**
     + Hue: 0 - 360  Saturation: 0 - 100%  Lightness: 0 - 100%
 
-**Opacity**
-We can use the **opacity** property to change the opacity of an element. However, it changes the opacity of the entire element (forground, background, border, ...). CSS3 added a new feature to allow developer to change the opacity on specific parts of an element. This posible via the **RGB** and **HSL** **Alpha** (**RGBA**, **HSLA**).
+#### __Opacity__
+
+We can use the **opacity** property to change the opacity of an element. However, it changes the **opacity** of the entire element (foreground, background, border, ...). CSS3 added a new feature to allow developer to change the opacity on specific parts of an element. This possible via the **RGB** and **HSL** **Alpha** (**RGBA**, **HSLA**).
 ```css
 div {
     background: rgba(247, 235, 185, .5);
@@ -40,7 +41,8 @@ p {
 ```
 ...
 
-**em**:
+#### __em__:
+
 This is a **relative** value (relative to the **font-size** their **parent element**).
 
 ```css
@@ -61,20 +63,23 @@ p {
 ```
 ...
 
-**rem**:
+#### __rem__:
+
 This is also a relative value (relative to **font-size** of **root element**).
 
 ...
 
-**Percentage (%)**
+#### __Percentage (%)__
+
 There are used in responsive layouts. They let containers expand or shrink based on the viewport size.
 
 
 Vendor Prefixes
 ---------------
-CSS **vendor prefixes** allows browsers manifactures to add support for new CSS features before they are fully supported by all browsers.
+CSS **vendor prefixes** allows browsers manufactures to add support for new CSS features before they are fully supported by all browsers.
 
-**Common Vendor prefexes**:
+#### __Common Vendor prefixes__:
+
 + -webkit-  WebKit(chrome, safari, iOS and Android)
 + -moz-     Moxilla(Firefox)
 + -ms-      Microsoft (Internet Explorer)
