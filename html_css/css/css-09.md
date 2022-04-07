@@ -71,8 +71,8 @@ Problem
 + Let's set the **container width to 800px** (This means the max-width of any child is therefore 800px).
 
 
-+ Let's set the **second element width to 200px**.
-+ Let's set the **third elements width to 600px**.
++ Let's set the **second element width inside the container to 200px**.
++ Let's set the **third elements width inside the container to 600px**.
 
 If we **float left** the second element, the third element would goes to its right. However, given that we have a fixed **width** of **800px**, if we add padding or content, we may exceed the 800px and break the float effect.
 
