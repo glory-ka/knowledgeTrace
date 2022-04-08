@@ -108,4 +108,4 @@ The following are the property of the **box-sizing** property:
 + **initial** Sets this property to its default value. Read about initial
 + **inherit** Inherits this property from its parent element. Read about inherit
 
-The preferred value for the **box-sizing** property is **content-box**.
+The preferred value for the **box-sizing** property is **content-box**. That is because **width** of the element would be adjusted to not exceed value of the **width** property.
