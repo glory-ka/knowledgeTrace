@@ -154,7 +154,7 @@ __TRUNCATE/SUBSTRING__
 ```bash
 
 str=AnyString
-echo ${str:0:2}  # Any
+echo ${str:0:3}  # Any from 0 extract 3
 
 ```
 
