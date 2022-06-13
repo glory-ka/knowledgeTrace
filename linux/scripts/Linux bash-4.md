@@ -78,5 +78,6 @@ do
 done
 ```
 [Bash array source](https://opensource.com/article/18/5/you-dont-know-bash-intro-bash-arrays)
+
 [Bash array source](https://www.freecodecamp.org/news/bash-array-how-to-declare-an-array-of-strings-in-a-bash-script/)
 
