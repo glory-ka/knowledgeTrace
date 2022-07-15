@@ -1,12 +1,20 @@
 BOOTSTRAP
 ---------
 ```html
-<div class="container-fluid"></div>
-<div class="well"></div>
-
-<div class="row">
-   <div class="col-xs-*"></div> <!-- for small size screen -->
-   <div class="col-md-*"></div> <!-- for medium size screen -->
+<div class="container-fluid">
+   
+   <div class="row">
+      <div class="col-xs-*"></div> <!-- for small size screen -->
+      <div class="col-md-*"></div> <!-- for medium size screen -->
+   </div>
+   
+   <div class="well">
+      <div class="row">
+         <div class="col-xs-*"></div> <!-- for small size screen -->
+         <div class="col-md-*"></div> <!-- for medium size screen -->
+      </div>
+   </div>
+   
 </div>
 ```
 SASS
